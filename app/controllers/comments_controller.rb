@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    #@post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
@@ -33,6 +34,7 @@ class CommentsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js # create.js.erb
       end
     end
   end
